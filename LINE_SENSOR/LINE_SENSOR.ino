@@ -7,7 +7,7 @@ class LineSensor
     void calibrate();
   
     LineSensor( void );
-    void begin( const uint8_t pin1, const uint8_t pin2, const uint8_t pin3, const uint8_t _sigPin );
+    void begin( const uint8_t pin1, const uint8_t pin2, const uint8_t pin3, const uint8_t sigPin );
     void end();
   private:
     boolean _destroyed;
