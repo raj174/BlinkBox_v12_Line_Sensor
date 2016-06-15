@@ -8,7 +8,7 @@ void LineSensor::begin( const uint8_t pin1, const uint8_t pin2, const uint8_t pi
   _pin1 = pin1;
   _pin2 = pin2;
   _pin3 = pin3;
-  _sigPin = sigPin
+  _sigPin = sigPin;
   _lastTriggered = 0;
   _mode = 0;
   
