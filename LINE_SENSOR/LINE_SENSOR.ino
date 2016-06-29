@@ -2,14 +2,16 @@
 class LineSensor
 {
   public:
-    bool available( void );// gets values from the line sensor and stores the one with a high or low state depending on the signals youve set to send
+    bool available( void );// gets values from the line sensor and gives 5 values as 1(on line) or 0.(omits 0's on the left)
     int8_t read( void );// tells the most recent one on the line(-2 to 2, left to right, depends on orientation)
-    void setMode( uint8_t mode );// tells the microcontroller the state on which it should check
-    void calibrate();
+    void inMode( uint8_t mode );// tells the microcontroller the mode the line sensor is using(0 for dark, 1 for normal)
+    void calibrate();//Use to calibrate the line sensor
+    void changeMode();//Change between dark and normal
   
     LineSensor( void );
-    void begin(const uint8_t pin1, const uint8_t pin2, const uint8_t pin3, const uint8_t pin4, const uint8_t pin5, const uint8_t sigPin);// sets the pins of the line sensor
-    void end();// stops getting values from the line sensor the line sensor 
+    void begin(const uint8_t pin1, const uint8_t pin2, const uint8_t pin3, const uint8_t pin4, const uint8_t pin5, const uint8_t sigPin);
+    //void begin sets the pins of the line sensor
+    void end();// stops getting values from the line sensor 
   private:
     boolean _destroyed;
     uint8_t _pin1;
@@ -37,11 +39,23 @@ void loop()
   {
     switch( lineSensor.read() )
     {
-      case -1:
+      case 10000:
         break;
-      case 0:
+      case 11000:
+        break;  
+      case 01000:
         break;
-      case 1:
+      case 01100:
+        break;
+      case 00100:
+        break;
+      case 00110:
+        break;
+      case 00010:
+        break;
+      case 00011:
+        break;
+      case 00001:
         break;
     }
   }
